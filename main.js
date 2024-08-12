@@ -54,4 +54,21 @@ apps.get('/posts/type/:name', (req, res) => {
     })
 })
 
+apps.post('/do_login', (req, res) => {
+    const email = req?.body?.email;
+    const password = req?.body?.password;
+    pool.query('SELECT * FROM users where email = $1 AND password = $2',  [email , password] , (error, results) => {
+        if (error) {
+            throw error
+        }
+    if(results?.rows?.length > 0){
+        res.status(200).json(results.rows)
+    }else{
+        res.status(200).json({"success": false})
+    }
+        
+    })
+})
+
+
 apps.listen(5000);
