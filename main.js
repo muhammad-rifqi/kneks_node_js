@@ -46,7 +46,7 @@ apps.get('/posts', (req, res) => {
 
 apps.get('/posts/type/:name', (req, res) => {
     const names = req.params.name;
-    pool.query('SELECT * FROM tbl_portofolio WHERE type = $1 ' , [names] , (error, results) => {
+    pool.query('SELECT * FROM posts WHERE type = $1 ' , [names] , (error, results) => {
         if (error) {
             throw error
         }
