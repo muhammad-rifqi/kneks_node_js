@@ -10,7 +10,7 @@ const pool = new Pool({
     user: 'postgres',
     host: 'localhost',
     database: 'postgres',
-    password: '123',
+    password: 'Barlok15@',
     port: 5432,
 })
 
@@ -34,8 +34,8 @@ apps.get('/detail/:id', (req, res) => {
     // console.log(idTx)
 })
 
-apps.get('/portofolio', (req, res) => {
-    pool.query('SELECT * FROM tbl_portofolio ORDER BY id DESC', (error, results) => {
+apps.get('/posts', (req, res) => {
+    pool.query('SELECT * FROM posts ORDER BY id DESC', (error, results) => {
         if (error) {
             throw error
         }
@@ -44,9 +44,9 @@ apps.get('/portofolio', (req, res) => {
 })
 
 
-apps.get('/portofolio/detail/:id', (req, res) => {
-    const idTx = req.params.id;
-    pool.query('SELECT * FROM tbl_portofolio WHERE id = $1 ' , [idTx] , (error, results) => {
+apps.get('/posts/type/:name', (req, res) => {
+    const names = req.params.name;
+    pool.query('SELECT * FROM tbl_portofolio WHERE type = $1 ' , [names] , (error, results) => {
         if (error) {
             throw error
         }
