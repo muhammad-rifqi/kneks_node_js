@@ -4,6 +4,7 @@ const apps = express();
 const bodyParser = require('body-parser')
 const port = process.env.PORT;
 const path = require('path');
+app.use(cors());
 const Pool = require('pg').Pool
 
 const pool = new Pool({
