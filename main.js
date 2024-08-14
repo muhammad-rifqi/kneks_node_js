@@ -21,7 +21,7 @@ const con = mysql.createConnection({
     host: "localhost",
     user: "root",
     password: "S#g=qGHo7i<t5",
-    database: "kneks"
+    database: "pdes"
 });
 
 
@@ -87,6 +87,33 @@ apps.post('/do_login', (req, res) => {
         });
     })
 })
+
+
+apps.get('/menus', (req, res) => {
+    const sql = `
+        SELECT menus.id as menu_id, menus.name as menu_name, submenus.id as submenu_id, submenus.name as submenu_name 
+        FROM menus 
+        LEFT JOIN submenus ON menus.id = submenus.menu_id
+    `;
+    db.query(sql, (err, results) => {
+        if (err) throw err;
+        const menus = results.reduce((acc, row) => {
+            const { menu_id, menu_name, submenu_id, submenu_name } = row;
+            const menu = acc.find(m => m.id === menu_id);
+            if (menu) {
+                menu.submenus.push({ id: submenu_id, name: submenu_name });
+            } else {
+                acc.push({
+                    id: menu_id,
+                    name: menu_name,
+                    submenus: submenu_id ? [{ id: submenu_id, name: submenu_name }] : []
+                });
+            }
+            return acc;
+        }, []);
+        res.send(menus);
+    });
+});
 
 apps.post('/act_login', (req, res) => {
     const email = req?.body?.email;
