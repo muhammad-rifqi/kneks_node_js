@@ -110,6 +110,6 @@ apps.post('/act_login', (req, res) => {
 
 apps.get("/logout", (req, res) => {
     res.redirect("/");
-  });
+});
 
 apps.listen(port);
