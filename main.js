@@ -20,7 +20,7 @@ var md5 = require('md5');
 const con = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: "",
+    password: "S#g=qGHo7i<t5",
     database: "kneks"
 });
 
