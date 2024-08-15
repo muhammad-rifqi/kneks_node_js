@@ -46,14 +46,13 @@
     <!--! ================================================================ !-->
     <!--! [Start] Header !-->
     <!--! ================================================================ !-->
-    <script src="/header.js"></script>
+    <script src="header.js"></script>
     <!--! ================================================================ !-->
     <!--! [Start] Main Content !-->
     <!--! ================================================================ !-->
     <main class="nxl-container">
         <div class="nxl-content">
             <!-- [ page-header ] start -->
-            
             <script src="/breadchumb.js"></script>
 
             <div class="main-content">
@@ -61,7 +60,24 @@
                     <div class="col-lg-12">
                         <div class="card stretch stretch-full">
                             <div class="card-body p-0">
-                                <iframe src="https://metabase.kneks.go.id/public/dashboard/49a2469e-15ca-45ab-80b5-b2c0d03bd8b1" style="width: 100%; height: 120vh; position: relative;" height="120vh" width="100%" frameborder="0"></iframe>
+                                <div class="form-group p-4">
+                                    <p><label class="text-dark">Pilih dashboard:</label></p>
+                                    <select id="select-vis" class="form-control select-search" name="vis-link"
+                                        onchange="selectvis()">
+                                        <option
+                                            value="https://metabase.kneks.go.id/public/dashboard/7caec5a5-4e6f-45c2-8d38-00286d5dc3ed">
+                                            Taskforce Lintas K/L Percepatan Implementasi Sertifikasi Halal UMK</option>
+                                        <option
+                                            value="https://metabase.kneks.go.id/public/dashboard/246d5269-bb1d-4444-ad43-798777951414">
+                                            Taskforce Lintas K/L Percepatan Implementasi Sertifikasi Halal UMK​ (2022)
+                                        </option>
+                                    </select>
+
+                                    <iframe id="iframe-vis" src=""
+                                        style="width: 100%; height: 120vh; position: relative;" height="120vh"
+                                        width="100%" frameborder="0"></iframe>
+
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -101,6 +117,19 @@
     <!--! BEGIN: Theme Customizer  !-->
     <script src="/assets/js/theme-customizer-init.min.js"></script>
     <!--! END: Theme Customizer !-->
+
+    <script>
+        const fr = document.getElementById("iframe-vis");
+        fr.setAttribute('src', 'https://metabase.kneks.go.id/public/dashboard/7caec5a5-4e6f-45c2-8d38-00286d5dc3ed');
+        function selectvis() {
+            const sv = document.getElementById("select-vis").value;
+            if (sv == undefined || sv == "") {
+                fr.setAttribute('src', 'https://metabase.kneks.go.id/public/dashboard/7caec5a5-4e6f-45c2-8d38-00286d5dc3ed');
+            } else {
+                fr.setAttribute('src', sv);
+            }
+        }
+    </script>
 </body>
 
 </html>

@@ -13,7 +13,7 @@ document.write(`<nav class="nxl-navigation">
                         <label>Dashboard</label>
                     </li>
                     <li class="nxl-item">
-                        <a href="#" class="nxl-link">
+                        <a href="/aus" class="nxl-link">
                             <span class="nxl-micon"><i class="feather-activity"></i></span>
                             <span class="nxl-mtext">Aktifitas Usaha Syariah </span></span>
                         </a>
@@ -24,8 +24,8 @@ document.write(`<nav class="nxl-navigation">
                             <span class="nxl-mtext">IPH</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
                         </a>
                         <ul class="nxl-submenu">
-                            <li class="nxl-item"><a class="nxl-link" href="">Sertifikat HALAL UMK</a></li>
-                            <li class="nxl-item"><a class="nxl-link" href="">Kawasan Industri Halal</a></li>
+                            <li class="nxl-item"><a class="nxl-link" href="/shu">Sertifikat HALAL UMK</a></li>
+                            <li class="nxl-item"><a class="nxl-link" href="/kih">Kawasan Industri Halal</a></li>
                             <li class="nxl-item"><a class="nxl-link" href="">Rumah Potong Hewan</a></li>
                             <li class="nxl-item"><a class="nxl-link" href="">Lembaga Pemeriksaan Halal</a></li>
                             <li class="nxl-item"><a class="nxl-link" href="">Halal Logistik/Ports</a></li>
