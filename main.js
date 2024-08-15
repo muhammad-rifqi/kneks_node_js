@@ -5,16 +5,7 @@ const cors = require('cors')
 const bodyParser = require('body-parser')
 const port = process.env.PORT;
 const path = require('path');
-const mysql = require('mysql2');
-var md5 = require('md5');
-
-const con = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "",
-    database: "pdes"
-});
-
+const db = require('./db/query')
 
 apps.use(bodyParser.json())
 apps.use(
@@ -38,6 +29,8 @@ apps.get('/aus', (req, res) => {
     res.sendFile(path.resolve('./views/aus.html'));
 })
 
+// ::::::::::::::::::: IPH  ::::::::::::::::::::::::
+
 apps.get('/shu', (req, res) => {
     res.sendFile(path.resolve('./views/iph/shu.html'));
 })
@@ -46,28 +39,137 @@ apps.get('/kih', (req, res) => {
     res.sendFile(path.resolve('./views/iph/kih.html'));
 })
 
-apps.post('/act_login', (req, res) => {
-    const email = req?.body?.email;
-    const password = md5(req?.body?.password);
-    console.log(email, password)
-    con.connect(function (err) {
-        if (err) throw err;
-        con.query('SELECT * FROM users where email = ? AND password = ? ', [email, password], (error, results) => {
-            if (error) {
-                throw error
-            }
-            if (results?.length > 0) {
-                console.log(results)
-                res.redirect("/dashboard");
-            } else {
-                res.redirect("/");
-            }
-        });
-    })
+apps.get('/rph', (req, res) => {
+    res.sendFile(path.resolve('./views/iph/rph.html'));
 })
+
+apps.get('/lph', (req, res) => {
+    res.sendFile(path.resolve('./views/iph/lph.html'));
+})
+
+apps.get('/hlp', (req, res) => {
+    res.sendFile(path.resolve('./views/iph/hlp.html'));
+})
+
+apps.get('/iks', (req, res) => {
+    res.sendFile(path.resolve('./views/iph/iks.html'));
+})
+
+apps.get('/prm', (req, res) => {
+    res.sendFile(path.resolve('./views/iph/prm.html'));
+})
+
+apps.get('/kph', (req, res) => {
+    res.sendFile(path.resolve('./views/iph/kph.html'));
+})
+
+// ::::::::::::::::::: JKS  ::::::::::::::::::::::::
+
+apps.get('/lsj', (req, res) => {
+    res.sendFile(path.resolve('./views/jks/lsj.html'));
+})
+
+apps.get('/kpbus', (req, res) => {
+    res.sendFile(path.resolve('./views/jks/kpbus.html'));
+})
+
+apps.get('/pas', (req, res) => {
+    res.sendFile(path.resolve('./views/jks/pas.html'));
+})
+
+apps.get('/pds', (req, res) => {
+    res.sendFile(path.resolve('./views/jks/pds.html'));
+})
+
+apps.get('/ipl', (req, res) => {
+    res.sendFile(path.resolve('./views/jks/ipl.html'));
+})
+
+apps.get('/pabs', (req, res) => {
+    res.sendFile(path.resolve('./views/jks/pabs.html'));
+})
+
+// ::::::::::::::::::: KSS  ::::::::::::::::::::::::
+
+apps.get('/wn', (req, res) => {
+    res.sendFile(path.resolve('./views/kss/wn.html'));
+})
+
+apps.get('/bmti', (req, res) => {
+    res.sendFile(path.resolve('./views/kss/bmti.html'));
+})
+
+apps.get('/zisn', (req, res) => {
+    res.sendFile(path.resolve('./views/kss/zisn.html'));
+})
+
+apps.get('/ku', (req, res) => {
+    res.sendFile(path.resolve('./views/kss/ku.html'));
+})
+
+// ::::::::::::::::::: BIWIS  ::::::::::::::::::::::::
+
+apps.get('/spu', (req, res) => {
+    res.sendFile(path.resolve('./views/biwis/spu.html'));
+})
+
+apps.get('/peh', (req, res) => {
+    res.sendFile(path.resolve('./views/biwis/peh.html'));
+})
+
+apps.get('/pdes', (req, res) => {
+    res.sendFile(path.resolve('./views/biwis/pdes.html'));
+})
+
+apps.get('/zk', (req, res) => {
+    res.sendFile(path.resolve('./views/biwis/zk.html'));
+})
+
+apps.get('/pss', (req, res) => {
+    res.sendFile(path.resolve('./views/biwis/pss.html'));
+})
+
+// ::::::::::::::::::: INSIS  ::::::::::::::::::::::::
+
+apps.get('/riph', (req, res) => {
+    res.sendFile(path.resolve('./views/insis/riph.html'));
+})
+
+apps.get('/kdeks', (req, res) => {
+    res.sendFile(path.resolve('./views/insis/kdeks.html'));
+})
+
+apps.get('/bis', (req, res) => {
+    res.sendFile(path.resolve('./views/insis/bis.html'));
+})
+
+apps.get('/leks', (req, res) => {
+    res.sendFile(path.resolve('./views/insis/leks.html'));
+})
+
+apps.get('/sdmes', (req, res) => {
+    res.sendFile(path.resolve('./views/insis/sdmes.html'));
+})
+
+// ::::::::::::::::::: LKS  ::::::::::::::::::::::::
+
+apps.get('/lks', (req, res) => {
+    res.sendFile(path.resolve('./views/lks/lks.html'));
+})
+
+apps.get('/ps', (req, res) => {
+    res.sendFile(path.resolve('./views/lks/ps.html'));
+})
+
+apps.get('/pms', (req, res) => {
+    res.sendFile(path.resolve('./views/lks/pms.html'));
+})
+
+
+// ::::::::::::::::::: QUERY  ::::::::::::::::::::::::
+
+apps.post('/act_login', db.do_login)
   
-apps.get("/logout", (req, res) => {
-    res.redirect("/");
-});
+apps.get("/logout", db.do_logout);
 
 apps.listen(port);
