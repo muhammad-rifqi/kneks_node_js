@@ -6,14 +6,14 @@ const bodyParser = require('body-parser')
 const port = process.env.PORT;
 const path = require('path');
 const db = require('./db/query')
-
+const cookieParser = require("cookie-parser");
 apps.use(bodyParser.json())
 apps.use(
     bodyParser.urlencoded({
         extended: true,
     })
 )
-
+apps.use(cookieParser());
 apps.use(cors());
 apps.use(express.static('public'));
 

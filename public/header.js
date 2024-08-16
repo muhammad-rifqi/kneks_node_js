@@ -71,8 +71,8 @@ document.write(`<header class="nxl-header">
                                 <div class="d-flex align-items-center">
                                     <img src="/assets/images/avatar/1.png" alt="user-image" class="img-fluid user-avtar" />
                                     <div>
-                                        <h6 class="text-dark mb-0">Alexandra Della</h6>
-                                        <span class="fs-12 fw-medium text-muted">alex.della@outlook.com</span>
+                                        <h6 class="text-dark mb-0">Administrator</h6>
+                                        <span class="fs-12 fw-medium text-muted" id="name"></span>
                                     </div>
                                 </div>
                             </div>
@@ -90,3 +90,13 @@ document.write(`<header class="nxl-header">
     <!--! ================================================================ !-->
     <!--! [End] Header !-->
     <!--! ================================================================ !-->`);
+
+
+    let cookie = {};
+    var a = document.cookie.split(";");
+    for (var i = 0; i < a.length; i++) {
+      var b = a[i].split("=");
+      var [key, value] = b;
+      cookie[key.trim()] = value;
+    }
+    document.getElementById("name").innerText = cookie["name"];

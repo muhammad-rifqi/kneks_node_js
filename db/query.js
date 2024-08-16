@@ -20,6 +20,10 @@ const do_login = (req, res) => {
             }
             if (results?.length > 0) {
                 console.log(results)
+                const isLogin = true;
+                res.cookie("islogin", isLogin);
+                res.cookie("id", results[0]?.id);
+                res.cookie("name", results[0]?.name);
                 res.redirect("/dashboard");
             } else {
                 res.redirect("/");
@@ -29,10 +33,13 @@ const do_login = (req, res) => {
 }
 
 const do_logout = (req, res) => {
+    res.clearCookie("islogin");
+    res.clearCookie("name");
+    res.clearCookie("id");
     res.redirect("/");
 }
 
 module.exports = {
     do_login,
     do_logout
-  }
+}
