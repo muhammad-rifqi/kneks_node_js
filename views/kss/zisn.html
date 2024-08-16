@@ -61,16 +61,7 @@
                         <div class="card stretch stretch-full">
                             <div class="card-body p-0">
                                 <div class="form-group p-4">
-                                    <p><label class="text-dark">Pilih dashboard:</label></p>
-                                    <select id="select-vis" class="form-control select-search" name="vis-link" onchange="selectvis()">
-                                        <option value="https://metabase.kneks.go.id/public/dashboard/112dd65e-3c50-4885-aba9-0f0356404fdf">Pembangunan Zona Industri dan Kawasan Industri Halal (KIH)</option>
-                                        <option value="https://metabase.kneks.go.id/public/dashboard/29872233-a53b-4a5b-8b2f-d843114a05de">Persebaran Sentra IKM</option>
-                                  </select>
-
-                                    <iframe id="iframe-vis" src=""
-                                        style="width: 100%; height: 120vh; position: relative;" height="120vh"
-                                        width="100%" frameborder="0"></iframe>
-
+                                    <iframe src="https://metabase.kneks.go.id/public/dashboard/5eecfb13-9f48-4df0-a902-fe2d89d03fd3" style="width: 100%; height: 120vh; position: relative;" height="120vh" width="100%" frameborder="0"></iframe>
                                 </div>
                             </div>
                         </div>
@@ -111,19 +102,6 @@
     <!--! BEGIN: Theme Customizer  !-->
     <script src="/assets/js/theme-customizer-init.min.js"></script>
     <!--! END: Theme Customizer !-->
-
-    <script>
-        const fr = document.getElementById("iframe-vis");
-        fr.setAttribute('src', 'https://metabase.kneks.go.id/public/dashboard/112dd65e-3c50-4885-aba9-0f0356404fdf');
-        function selectvis() {
-            const sv = document.getElementById("select-vis").value;
-            if (sv == undefined || sv == "") {
-                fr.setAttribute('src', 'https://metabase.kneks.go.id/public/dashboard/112dd65e-3c50-4885-aba9-0f0356404fdf');
-            } else {
-                fr.setAttribute('src', sv);
-            }
-        }
-    </script>
 </body>
 
 </html>

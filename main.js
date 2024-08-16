@@ -139,8 +139,8 @@ apps.get('/kdeks', (req, res) => {
     res.sendFile(path.resolve('./views/insis/kdeks.html'));
 })
 
-apps.get('/bis', (req, res) => {
-    res.sendFile(path.resolve('./views/insis/bis.html'));
+apps.get('/bes', (req, res) => {
+    res.sendFile(path.resolve('./views/insis/bes.html'));
 })
 
 apps.get('/leks', (req, res) => {

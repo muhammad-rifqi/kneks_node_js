@@ -81,7 +81,7 @@ document.write(`<nav class="nxl-navigation">
                         <ul class="nxl-submenu">
                             <li class="nxl-item"><a class="nxl-link" href="/riph">Riset & Inovasi Produk Halal</a></li>
                             <li class="nxl-item"><a class="nxl-link" href="/kdeks">KDEKS</a></li>
-                            <li class="nxl-item"><a class="nxl-link" href="/bis">Brand Indonesia Syariah</a></li>
+                            <li class="nxl-item"><a class="nxl-link" href="/bes">Brand Ekonomi Syariah</a></li>
                             <li class="nxl-item"><a class="nxl-link" href="/leks">Litersi Ekonomi & Keuangan Syariah</a></li>
                             <li class="nxl-item"><a class="nxl-link" href="/sdmes">SDM Ekonomi Syariah</a></li>
                         </ul>

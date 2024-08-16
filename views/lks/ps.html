@@ -63,8 +63,11 @@
                                 <div class="form-group p-4">
                                     <p><label class="text-dark">Pilih dashboard:</label></p>
                                     <select id="select-vis" class="form-control select-search" name="vis-link" onchange="selectvis()">
-                                        <option value="https://metabase.kneks.go.id/public/dashboard/112dd65e-3c50-4885-aba9-0f0356404fdf">Pembangunan Zona Industri dan Kawasan Industri Halal (KIH)</option>
-                                        <option value="https://metabase.kneks.go.id/public/dashboard/29872233-a53b-4a5b-8b2f-d843114a05de">Persebaran Sentra IKM</option>
+                                        <option value="https://metabase.kneks.go.id/public/dashboard/3d968d95-7d77-4654-a9ef-9e5882116c32">Kinerja Perbankan Syariah</option>
+                                        <option value="https://metabase.kneks.go.id/public/dashboard/e7284681-2fbf-4b43-abd5-08e3dc45554e">Kinerja BUS-UUS</option>
+                                        <option value="https://metabase.kneks.go.id/public/dashboard/c9c7edfb-2f71-49f6-91f8-b028b1bb8fe8">Pembiayaan Berdasarkan Sektor Ekonomi</option>
+                                        <option value="https://metabase.kneks.go.id/public/dashboard/8b63a692-263b-45c8-bd34-09d71d699c17">Kinerja Perbankan Syariah 2</option>
+                                        <option value="https://metabase.kneks.go.id/public/dashboard/82318a19-8925-44a3-a322-757f83dad177">Perkembangan Perbankan Syariah</option>
                                   </select>
 
                                     <iframe id="iframe-vis" src=""
@@ -114,11 +117,11 @@
 
     <script>
         const fr = document.getElementById("iframe-vis");
-        fr.setAttribute('src', 'https://metabase.kneks.go.id/public/dashboard/112dd65e-3c50-4885-aba9-0f0356404fdf');
+        fr.setAttribute('src', 'https://metabase.kneks.go.id/public/dashboard/3d968d95-7d77-4654-a9ef-9e5882116c32');
         function selectvis() {
             const sv = document.getElementById("select-vis").value;
             if (sv == undefined || sv == "") {
-                fr.setAttribute('src', 'https://metabase.kneks.go.id/public/dashboard/112dd65e-3c50-4885-aba9-0f0356404fdf');
+                fr.setAttribute('src', 'https://metabase.kneks.go.id/public/dashboard/3d968d95-7d77-4654-a9ef-9e5882116c32');
             } else {
                 fr.setAttribute('src', sv);
             }

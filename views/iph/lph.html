@@ -63,8 +63,8 @@
                                 <div class="form-group p-4">
                                     <p><label class="text-dark">Pilih dashboard:</label></p>
                                     <select id="select-vis" class="form-control select-search" name="vis-link" onchange="selectvis()">
-                                        <option value="https://metabase.kneks.go.id/public/dashboard/112dd65e-3c50-4885-aba9-0f0356404fdf">Pembangunan Zona Industri dan Kawasan Industri Halal (KIH)</option>
-                                        <option value="https://metabase.kneks.go.id/public/dashboard/29872233-a53b-4a5b-8b2f-d843114a05de">Persebaran Sentra IKM</option>
+                                        <option value="https://metabase.kneks.go.id/public/dashboard/8b9005c7-1f30-4c45-9791-095d8dd55bb2">Lembaga Pemeriksa Halal (LPH) Nasional</option> 
+                                        <option value="https://metabase.kneks.go.id/public/dashboard/10180cf7-9f1d-4e76-ada3-cc21ceeb9c8b">Lembaga Pemeriksa Halal (LPH) Nasional​ (2022)</option>
                                   </select>
 
                                     <iframe id="iframe-vis" src=""
@@ -114,11 +114,11 @@
 
     <script>
         const fr = document.getElementById("iframe-vis");
-        fr.setAttribute('src', 'https://metabase.kneks.go.id/public/dashboard/112dd65e-3c50-4885-aba9-0f0356404fdf');
+        fr.setAttribute('src', 'https://metabase.kneks.go.id/public/dashboard/8b9005c7-1f30-4c45-9791-095d8dd55bb2');
         function selectvis() {
             const sv = document.getElementById("select-vis").value;
             if (sv == undefined || sv == "") {
-                fr.setAttribute('src', 'https://metabase.kneks.go.id/public/dashboard/112dd65e-3c50-4885-aba9-0f0356404fdf');
+                fr.setAttribute('src', 'https://metabase.kneks.go.id/public/dashboard/8b9005c7-1f30-4c45-9791-095d8dd55bb2');
             } else {
                 fr.setAttribute('src', sv);
             }
